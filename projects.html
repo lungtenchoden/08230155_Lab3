@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Projects - Lungten's Portfolio</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+<header> 
+    <a href="index.html" class="logo"><span>Lungten's</span> Portfolio</a>
+    <nav class="navbar">
+        <a href="about.html">About Me</a>
+        <a href="education.html">Education</a>
+        <a href="skills.html">Skills</a>
+        <a href="projects.html" class="active">Projects</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+    <div class="follow">
+        <a href="https://www.facebook.com/share/1B4GC9kxbc/?mibextid=wwXIfr" class="fab fa-facebook"></a>
+        <a href="https://www.instagram.com/bxbyl3" class="fab fa-instagram"></a>
+        <button id="toggleMode" class="toggle-btn">🌙 Dark Mode</button>
+    </div>
+</header>
+
+<section id="projects">
+  <div class="container">
+    <h2>Projects</h2>
+
+    <!-- Project 1 -->
+    <div class="project fade-in">
+      <h3>Physics Project: Working with Bipolar Junction Transistors</h3>
+      <img src="bjt.jpg" alt="Picture of working BJT" class="project-img">
+      <p>As part of a group activity in our Physics class, we worked on an experiment to understand how a bipolar junction transistor (BJT) functions,
+        specifically using the BC547. We set up a biasing circuit on a breadboard and tested how the
+        transistor responded to different voltages, observing its behavior in modes like active and saturation.
+        Through this hands-on process, we learned how transistors manage current flow and why proper biasing is key.
+        It was a great opportunity to explore electronics practically and deepen our understanding of how these tiny components play a big role in everyday devices.
+      </p>
+    </div>
+
+    <!-- Project 2 -->
+    <div class="project fade-in">
+      <h3>DDD Project: Mini Project on Database Design</h3>
+      <img src="erd.jpg" alt="Image of Sports Event Management System" class="project-img">
+      <p>As a team, we worked on building a Sports Event Management System for the Bhutan University Sports Federation (BUSF), designed to make organizing
+        inter-college sports events smoother and more efficient. We focused on features like event registration, 
+        scheduling, team and participant management, and result tracking. Throughout the project, we learned 
+        how to turn real-world challenges into practical solutions using technology.
+        It was a great experience that helped us grow our skills in system design, collaboration, and applying digital tools to improve coordination across multiple colleges.
+      </p>
+    </div>
+
+    <!-- Project 3 -->
+    <div class="project fade-in">
+      <h3>Future Project: Gym Management System</h3>
+      <img src="gym.png" alt="Prototype" class="project-img">
+      <p>We are planning to develop a digital platform for the Samtse College of Education (SCE) gym that will allow students and staff to register online, 
+        track their attendance, and manage membership payments. The system will also include features for monitoring equipment usage, scheduling workout sessions, and providing important gym-related updates. 
+        By digitizing these services, the platform aims to reduce manual paperwork, improve record accuracy, and save time for both users and gym staff. 
+        Ultimately, the Gym Management System will ensure a more efficient, transparent, and user-friendly experience for the entire SCE community.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+    <div class="footer-container">
+        <h3>Lungten Choden</h3>
+        <p>© 2025 All Rights Reserved</p>
+        <div class="footer-right">
+            <a href="https://www.facebook.com/share/1B4GC9kxbc/?mibextid=wwXIfr" class="fab fa-facebook"></a>
+            <a href="https://www.instagram.com/bxbyl3" class="fab fa-instagram"></a>
+        </div>
+    </div>
+</footer>
+
+<script>
+// Fade-in animation when scrolling projects into view
+const projects = document.querySelectorAll('.fade-in');
+function fadeInProjects() {
+    const triggerBottom = window.innerHeight * 0.85;
+    projects.forEach(project => {
+        const projectTop = project.getBoundingClientRect().top;
+        if(projectTop < triggerBottom){
+            project.classList.add('visible');
+        }
+    });
+}
+window.addEventListener('scroll', fadeInProjects);
+window.addEventListener('load', fadeInProjects);
+
+// Dark mode toggle (footer excluded)
+const toggleBtn = document.getElementById("toggleMode");
+toggleBtn.addEventListener("click", () => {
+    document.body.classList.toggle("dark-mode");
+    if(document.body.classList.contains("dark-mode")){
+        toggleBtn.textContent = "☀️ Light Mode";
+    } else {
+        toggleBtn.textContent = "🌙 Dark Mode";
+    }
+});
+</script>
+
+</body>
+</html>
