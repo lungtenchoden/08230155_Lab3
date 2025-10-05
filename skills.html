@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Skills - Lungten's Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+<header> 
+    <a href="index.html" class="logo"><span>Lungten's</span> Portfolio</a>
+    <nav class="navbar">
+        <a href="about.html">About Me</a>
+        <a href="education.html">Education</a>
+        <a href="skills.html" class="active">Skills</a>
+        <a href="projects.html">Projects</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+    <div class="follow">
+        <a href="https://www.facebook.com/share/1B4GC9kxbc/?mibextid=wwXIfr" class="fab fa-facebook"></a>
+        <a href="https://www.instagram.com/bxbyl3" class="fab fa-instagram"></a>
+        <button id="toggleMode" class="toggle-btn">🌙 Dark Mode</button>
+    </div>
+</header>
+
+<section id="skills">
+  <div class="container">
+    <h2>Skills</h2>
+    <div class="skills-container">
+      
+      <div class="skill-category">
+        <h3>Technical <i class="fas fa-chevron-down"></i></h3>
+        <ul>
+          <li>HTML5, CSS3 & JavaScript</li>
+          <li>Python Programming</li>
+          <li>SQL & Database Management</li>
+          <li>Responsive Web Design</li>
+          <li>Educational Technology Tools</li>
+          <li>Learning Management Systems (LMS)</li>
+        </ul>
+      </div>
+
+      <div class="skill-category">
+        <h3>Teaching <i class="fas fa-chevron-down"></i></h3>
+        <ul>
+          <li>Curriculum Design & Development</li>
+          <li>Instructional Strategies</li>
+          <li>Classroom & Behavior Management</li>
+          <li>Student Assessment & Evaluation</li>
+          <li>Differentiated Learning Approaches</li>
+          <li>Technology-Enhanced Teaching</li>
+        </ul>
+      </div>
+
+      <div class="skill-category">
+        <h3>Soft Skills <i class="fas fa-chevron-down"></i></h3>
+        <ul>
+          <li>Effective Communication & Public Speaking</li>
+          <li>Team Collaboration</li>
+          <li>Problem Solving & Creativity</li>
+          <li>Critical & Analytical Thinking</li>
+          <li>Adaptability & Flexibility</li>
+          <li>Time Management & Lifelong Learning</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer>
+    <div class="footer-container">
+        <h3>Lungten Choden</h3>
+        <p>© 2025 All Rights Reserved</p>
+        <div class="footer-right">
+            <a href="https://www.facebook.com/share/1B4GC9kxbc/?mibextid=wwXIfr" class="fab fa-facebook"></a>
+            <a href="https://www.instagram.com/bxbyl3" class="fab fa-instagram"></a>
+        </div>
+    </div>
+</footer>
+
+<script>
+  // ================= Fade-in for skill categories =================
+  const skillCategories = document.querySelectorAll('.skill-category');
+
+  function fadeInSkills() {
+      const triggerBottom = window.innerHeight * 0.85;
+      skillCategories.forEach(cat => {
+          const catTop = cat.getBoundingClientRect().top;
+          if (catTop < triggerBottom) {
+              cat.classList.add('visible');
+          }
+      });
+  }
+
+  window.addEventListener('scroll', fadeInSkills);
+  window.addEventListener('load', fadeInSkills);
+
+  // ================= Accordion functionality =================
+  skillCategories.forEach(cat => {
+      const header = cat.querySelector('h3');
+      header.addEventListener('click', () => {
+          cat.classList.toggle('active');
+          const icon = header.querySelector('i');
+          icon.classList.toggle('fa-chevron-down');
+          icon.classList.toggle('fa-chevron-up');
+      });
+  });
+
+  // ================= Dark mode toggle =================
+  const toggleBtn = document.getElementById("toggleMode");
+  toggleBtn.addEventListener("click", () => {
+      document.body.classList.toggle("dark-mode");
+      if(document.body.classList.contains("dark-mode")){
+          toggleBtn.textContent = "☀️ Light Mode";
+      } else {
+          toggleBtn.textContent = "🌙 Dark Mode";
+      }
+  });
+</script>
+
+</body>
+</html>
