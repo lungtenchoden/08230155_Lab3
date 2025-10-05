@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Contact - Lungten's Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="contact.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+<header> 
+  <a href="index.html" class="logo"><span>Lungten's</span> Portfolio</a>
+  <nav class="navbar">
+    <a href="about.html">About Me</a>
+    <a href="education.html">Education</a>
+    <a href="skills.html">Skills</a>
+    <a href="projects.html">Projects</a>
+    <a href="contact.html" class="active">Contact</a>
+  </nav>
+  <div class="follow">
+    <a href="https://www.facebook.com/share/1B4GC9kxbc/?mibextid=wwXIfr" class="fab fa-facebook"></a>
+    <a href="https://www.instagram.com/bxbyl3" class="fab fa-instagram"></a>
+    <button id="toggleMode" class="toggle-btn">🌙 Dark Mode</button>
+  </div>
+</header>
+
+<section id="contact">
+  <div class="container fade-in">
+    <h2 class="fade-in">Contact Me</h2>
+    <div class="contact-container fade-in">
+      <div class="contact-info fade-in">
+        <p>I’m open to meaningful conversations on educational technology, teaching strategies, and collaboration.</p>
+        <div class="contact-details">
+          <div>
+            <i class="fas fa-envelope"></i>
+            <span>08230155.sce@rub.edu.bt</span>
+          </div>
+          <div>
+            <i class="fas fa-phone"></i>
+            <span>+975 17 954 479</span>
+          </div>
+          <div>
+            <i class="fas fa-map-marker-alt"></i>
+            <span>Samtse, Bhutan</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact Form -->
+      <form id="contact-form" class="fade-in">
+        <div class="form-group">
+          <input type="text" id="name" placeholder="Your Name" required>
+        </div>
+        <div class="form-group">
+          <input type="email" id="email" placeholder="Your Email" required>
+        </div>
+        <div class="form-group">
+          <textarea id="message" placeholder="Your Message" required></textarea>
+          <span id="char-counter">0 / 300 characters</span>
+          <div class="progress-bar-container">
+            <div id="progress-bar"></div>
+          </div>
+        </div>
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-container">
+    <h3>Lungten Choden</h3>
+    <p>© 2025 All Rights Reserved</p>
+    <div class="footer-right">
+      <a href="https://www.facebook.com/share/1B4GC9kxbc/?mibextid=wwXIfr" class="fab fa-facebook"></a>
+      <a href="https://www.instagram.com/bxbyl3" class="fab fa-instagram"></a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Dark Mode Toggle
+const toggleBtn = document.getElementById("toggleMode");
+toggleBtn.addEventListener("click", () => {
+    document.body.classList.toggle("dark-mode");
+    if(document.body.classList.contains("dark-mode")){
+        toggleBtn.textContent = "☀️ Light Mode";
+    } else {
+        toggleBtn.textContent = "🌙 Dark Mode";
+    }
+});
+
+// Fade-in animation on scroll
+const faders = document.querySelectorAll('.fade-in');
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if(entry.isIntersecting){
+            entry.target.classList.add('visible');
+        }
+    });
+}, {threshold: 0.2});
+
+faders.forEach(el => observer.observe(el));
+</script>
+
+<script src="script.js"></script>
+</body>
+</html>
